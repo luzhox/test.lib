@@ -2,7 +2,7 @@
   "name": "@luzhox/test-lib",
   "version": "1.0.0",
   "description": "Libreria sencilla de test",
-  "main": "lib/index.tsx",
+  "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "npx tsc -p ."

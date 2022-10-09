@@ -1,0 +1,22 @@
+{
+  "name": "@luzhox/test-lib",
+  "version": "1.0.0",
+  "description": "Libreria sencilla de test",
+  "main": "lib/index.tsx",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "npx tsc -p ."
+  },
+  "keywords": [
+    "react-lib",
+    "library-react",
+    "npm"
+  ],
+  "author": "Luis Morales",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.0.21",
+    "react": "^18.2.0",
+    "typescript": "^4.8.4"
+  }
+}

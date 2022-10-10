@@ -1,6 +1,6 @@
 {
   "name": "@luzhox/test-lib",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Libreria sencilla de test",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

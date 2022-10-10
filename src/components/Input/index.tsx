@@ -28,11 +28,35 @@ const uuid = () => {
 
   return `${lettersA}${num}${lettersB}`
 }
+
+interface Iinput {
+  bigClass?: string
+  onChange?: Function
+  HandleClick?: Function
+  onBlur?: Function
+  disabled?: boolean
+  className?: string
+  label: string
+  value: string
+  id: any
+  name: string
+  type?: string
+  typeInput?: string
+  maxLength?: number
+  hasError?: string // ENVIAR UN TEXTO O COMPONENTE
+  hasSpan?: string // ENVIAR UN TEXTO O COMPONENTE
+  sufixHolder?: string
+  sufixSolid?: boolean
+  onLoading?: boolean
+  textLoading?: boolean
+  onlyLetters?: boolean
+  enablePasswordIcon?: boolean
+  required?: boolean
+  placeholder?: string
+}
+
 const Input = ({
   bigClass = '',
-  onChange = null,
-  onClick = null,
-  onBlur = null,
   disabled = false,
   className = '',
   label = '',
@@ -40,19 +64,22 @@ const Input = ({
   name = '',
   type = 'text',
   typeInput = 'text',
-  maxLength = null,
-  hasError = null, // ENVIAR UN TEXTO O COMPONENTE
-  hasSpan = null, // ENVIAR UN TEXTO O COMPONENTE
   id = uuid(),
-  sufixHolder = null,
   sufixSolid = false,
+  sufixHolder = '',
   onLoading = false,
   textLoading = false,
   onlyLetters = false,
   enablePasswordIcon = false,
   required = false,
   placeholder = '',
-}) => {
+  hasError = '',
+  hasSpan = '',
+  maxLength = 99,
+  HandleClick = () => {},
+  onChange = () => {},
+  onBlur = () => {},
+}: Iinput) => {
   const refInput = useRef(null)
   const [active, setActive] = useState('')
   const [val, setVal] = useState(value || '')
@@ -72,9 +99,9 @@ const Input = ({
     }
   }, [val, value])
 
-  const hasPoint = (str) => str.includes('.')
+  const hasPoint = (str: any) => str.includes('.')
 
-  const limitDecimal = (number, decimal = 2) => {
+  const limitDecimal = (number: any, decimal = 2) => {
     if (!hasPoint(number)) {
       return number
     }
@@ -83,12 +110,11 @@ const Input = ({
     const limit = numberDecimal.slice(0, decimal)
     return `${numberAbs}.${limit}`
   }
-  const onChangeValue = (event) => {
-    console.log('tipo de validacion', type)
+  const onChangeValue = (event: any) => {
     if (!disabled && onChange) {
       let text = event.target.value
-      if (type !== 'text') {
-        text = text.replace(regexByTypeInput[type], '')
+      if (type == 'number') {
+        text = text.replace(regexByTypeInput.number, '')
       } else if (onlyLetters) {
         text = text.replace(regexByTypeInput.text, '')
       }
@@ -99,13 +125,13 @@ const Input = ({
       setVal(text)
     }
   }
-  const handleBlur = (event) => {
+  const handleBlur = (event: any) => {
     if (onBlur) {
       onBlur(event.target.value)
     }
   }
-  const mouseDownEvt = (event) => {
-    if (!refInput || refInput.current.contains(event.target)) {
+  const mouseDownEvt = (event: any) => {
+    if (!refInput || (refInput && refInput.current)) {
       return
     }
     setActive('')
@@ -116,15 +142,15 @@ const Input = ({
     return () => document.removeEventListener('mousedown', mouseDownEvt)
   }, [])
 
-  const setDefaultPropsInput = (toggle) => {
+  const setDefaultPropsInput = (toggle?: any) => {
     const defaultPropsInput = { type: 'text' }
     if (typeInput === 'password') {
       defaultPropsInput.type = 'password'
     }
     if (type === 'decimal') {
       defaultPropsInput.type = 'number'
-      defaultPropsInput.step = '0.00'
-      defaultPropsInput.inputMode = 'decimal'
+      // defaultPropsInput.step = '0.00'
+      // defaultPropsInput.inputMode = 'decimal'
     }
 
     if (toggle) {
@@ -152,7 +178,6 @@ const Input = ({
         ${hasSpan ? 'has-span' : ''}
         ${sufixSolid ? 'sufix--solid' : ''}
         ${className}`.trim()}
-        disabled={disabled}
         onClick={() => setActive('active')}
       >
         {onLoading ? (
@@ -179,33 +204,23 @@ const Input = ({
 
             <input
               name={name}
-              maxLength={maxLength}
+              maxLength={maxLength ? maxLength : 99}
               value={val || ''}
               onChange={onChangeValue}
               onBlur={handleBlur}
-              onClick={onClick}
+              onClick={() => HandleClick}
               disabled={disabled}
               {...setDefaultPropsInput()}
               placeholder={placeholder}
               type={toggleInput}
             />
 
-            {sufixHolder && (
+            {sufixHolder && sufixHolder.length && (
               <span className='cuidaUi__sufix'>{sufixHolder}</span>
             )}
           </>
         )}
       </div>
-      {hasSpan ? (
-        <div className='cuidaUi__span' htmlFor={id}>
-          {hasSpan}
-        </div>
-      ) : null}
-      {hasError ? (
-        <span className='cuidaUi__error' htmlFor={id}>
-          {hasError}
-        </span>
-      ) : null}
     </div>
   )
 }

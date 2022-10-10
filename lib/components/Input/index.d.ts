@@ -1,26 +1,28 @@
+/// <reference types="react" />
+interface Iinput {
+    bigClass?: string;
+    onChange?: Function;
+    HandleClick?: Function;
+    onBlur?: Function;
+    disabled?: boolean;
+    className?: string;
+    label: string;
+    value: string;
+    id: any;
+    name: string;
+    type?: string;
+    typeInput?: string;
+    maxLength?: number;
+    hasError?: string;
+    hasSpan?: string;
+    sufixHolder?: string;
+    sufixSolid?: boolean;
+    onLoading?: boolean;
+    textLoading?: boolean;
+    onlyLetters?: boolean;
+    enablePasswordIcon?: boolean;
+    required?: boolean;
+    placeholder?: string;
+}
+declare const Input: ({ bigClass, disabled, className, label, value, name, type, typeInput, id, sufixSolid, sufixHolder, onLoading, textLoading, onlyLetters, enablePasswordIcon, required, placeholder, hasError, hasSpan, maxLength, HandleClick, onChange, onBlur, }: Iinput) => JSX.Element;
 export default Input;
-declare function Input({ bigClass, onChange, onClick, onBlur, disabled, className, label, value, name, type, typeInput, maxLength, hasError, hasSpan, id, sufixHolder, sufixSolid, onLoading, textLoading, onlyLetters, enablePasswordIcon, required, placeholder, }: {
-    bigClass?: string | undefined;
-    onChange?: null | undefined;
-    onClick?: null | undefined;
-    onBlur?: null | undefined;
-    disabled?: boolean | undefined;
-    className?: string | undefined;
-    label?: string | undefined;
-    value?: string | undefined;
-    name?: string | undefined;
-    type?: string | undefined;
-    typeInput?: string | undefined;
-    maxLength?: null | undefined;
-    hasError?: null | undefined;
-    hasSpan?: null | undefined;
-    id?: string | undefined;
-    sufixHolder?: null | undefined;
-    sufixSolid?: boolean | undefined;
-    onLoading?: boolean | undefined;
-    textLoading?: boolean | undefined;
-    onlyLetters?: boolean | undefined;
-    enablePasswordIcon?: boolean | undefined;
-    required?: boolean | undefined;
-    placeholder?: string | undefined;
-}): JSX.Element;

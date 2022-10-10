@@ -8,6 +8,8 @@ interface IButtonProps {
   font?: string
   padding?: string
   bgColor?: string
+  HandleClick?: Function
+  classCustom?: string
 }
 const Button = ({
   text,
@@ -17,15 +19,19 @@ const Button = ({
   colorText = 'red',
   colorHover = 'green',
   font = 'sans-serif',
+  classCustom = '',
+  HandleClick = () => {},
 }: IButtonProps) => {
   return (
     <ButtonUi
+      className={classCustom}
       bgColorHover={bgColorHover}
       colorText={colorText}
       colorHover={colorHover}
       font={font}
       padding={padding}
       bgColor={bgColor}
+      onClick={() => HandleClick()}
     >
       {text}
     </ButtonUi>

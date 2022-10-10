@@ -7,6 +7,8 @@ interface IButtonProps {
     font?: string;
     padding?: string;
     bgColor?: string;
+    HandleClick?: Function;
+    classCustom?: string;
 }
-declare const Button: ({ text, padding, bgColor, bgColorHover, colorText, colorHover, font, }: IButtonProps) => JSX.Element;
+declare const Button: ({ text, padding, bgColor, bgColorHover, colorText, colorHover, font, classCustom, HandleClick, }: IButtonProps) => JSX.Element;
 export default Button;

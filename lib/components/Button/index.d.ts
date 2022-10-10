@@ -1,7 +1,7 @@
 /// <reference types="react" />
 interface IButtonProps {
-    text?: string;
-    bgColorHover: string;
+    text: string;
+    bgColorHover?: string;
     colorText?: string;
     colorHover?: string;
     font?: string;

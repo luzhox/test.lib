@@ -1,8 +1,8 @@
 import React from 'react'
-import { ButtonUi } from './style/index.js'
+import { ButtonUi } from './style/'
 interface IButtonProps {
-  text?: string
-  bgColorHover: string
+  text: string
+  bgColorHover?: string
   colorText?: string
   colorHover?: string
   font?: string
@@ -10,13 +10,13 @@ interface IButtonProps {
   bgColor?: string
 }
 const Button = ({
-  text = '',
-  padding = '',
-  bgColor = '',
-  bgColorHover = '',
-  colorText = '',
-  colorHover = '',
-  font = '',
+  text,
+  padding = '10px 20px',
+  bgColor = 'blue',
+  bgColorHover = 'red',
+  colorText = 'red',
+  colorHover = 'green',
+  font = 'sans-serif',
 }: IButtonProps) => {
   return (
     <ButtonUi

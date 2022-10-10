@@ -1,6 +1,6 @@
 {
   "name": "@luzhox/test-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Libreria sencilla de test",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -18,5 +18,8 @@
     "@types/react": "^18.0.21",
     "react": "^18.2.0",
     "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "style-components": "^0.1.0"
   }
 }

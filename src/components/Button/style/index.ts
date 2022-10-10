@@ -3,10 +3,10 @@ import styled from 'styled-components'
 export const ButtonUi = styled.button<{variant:string,bgColor: string,padding:string,colorHover:string,bgColorHover:string,colorText:string,font:string}>`
   appearance:none ;
   -webkit-appearance:none;
-  border:0px;
   outline:0px;
+  border:${({variant}) => variant === 'outlined'? '1px solid white' : '0px'};
   border-color:${({bgColor,variant}) => variant === 'outlined'? bgColor : 'none'} ;
-  background-color: ${({variant}) => variant === 'outlined' ?'none' : ({bgColor})=>bgColor?bgColor:'white'};
+  background-color: ${({variant}) => variant === 'outlined' ?'transparent' : ({bgColor})=>bgColor?bgColor:'white'};
   padding: ${({padding}) => padding?padding : '0px'};
   color: ${({colorText}) =>colorText?colorText : 'black'};
   font-family: ${({font}) =>font?font : 'sans-serif'};

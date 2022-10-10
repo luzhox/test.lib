@@ -1,7 +1,6 @@
-import styled from 'style-components'
+import styled from 'styled-components'
 
-/* tslint:disable */
-export const ButtonUi = styled.button`
+export const ButtonUi = styled.div`
   background-color: ${props.bgColor || 'white'};
   padding: ${props.padding || '0px'};
   color: ${props.colorText || 'black'};

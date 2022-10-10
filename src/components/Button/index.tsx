@@ -10,6 +10,7 @@ interface IButtonProps {
   bgColor?: string
   HandleClick?: Function
   classCustom?: string
+  variant?: string
 }
 const Button = ({
   text,
@@ -20,10 +21,12 @@ const Button = ({
   colorHover = 'green',
   font = 'sans-serif',
   classCustom = '',
+  variant = '',
   HandleClick = () => {},
 }: IButtonProps) => {
   return (
     <ButtonUi
+      variant={variant}
       className={classCustom}
       bgColorHover={bgColorHover}
       colorText={colorText}
